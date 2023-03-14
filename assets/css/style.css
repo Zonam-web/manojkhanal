@@ -117,7 +117,7 @@ p {
   width: 128px;
   border-radius: 33% 47% 42% 51%;
   box-shadow: 5px 0 44px -2px #ffd949;
-  box-shadow: 5px 0 44px -2px #ffffff;
+  box-shadow: 6px 0px 4px 1px #ffffff;
   background: #03a9f4;
   overflow: hidden;
 }
