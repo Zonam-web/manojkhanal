@@ -122,7 +122,7 @@ p {
   overflow: hidden;
 }
 .profile-img:hover {
-  background: turquoise;
+/*   background: turquoise; */
 }
 .profile-img img {
   height: 100%;
