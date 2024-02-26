@@ -11,7 +11,7 @@ let progressStartValue= 0,
         progressStartValue++;
         // progressValue.textContent = '${progressStartValue}%';
         progressValue.textContent = `${progressStartValue}%`
-        outer.style.background =  `conic-gradient(#00119f ${progressStartValue * 3.6}deg, white 0deg)`
+        outer.style.background =  `conic-gradient(#9f0092 ${progressStartValue * 3.6}deg, white 0deg)`
         if(progressStartValue == progressEndValue) {
             clearInterval(progress);
         }
@@ -66,26 +66,46 @@ var currentScrollPos = window.pageYOffset;
   if (prevScrollpos > currentScrollPos) {
     document.getElementById("nav-contents").style.top = "0px";
     document.getElementById("nav-contents").style.left = "0px";
-    document.getElementById("nav-contents").style.transition = "1s";
+    // document.getElementById("nav-contents").style.transition = "1s";
     document.getElementById("nav-contents").style.position = "absolute";
     document.getElementById("nav-contents").style.alignItems = "center";
-    document.getElementById("nav-contents").style.background = "darkblue";
-    document.querySelector(".profile-img").style.height= "120px";
-    document.querySelector(".profile-img").style.width= "120px";
-    document.getElementById("nav-contents").style.paddingTop = "10px";
-    document.getElementById("nav-contents").style.paddingBottom = "0px";
+    document.getElementById("nav-contents").style.background = "black";
+    document.querySelector(".profile-img").style.height= "60px";
+    document.querySelector(".profile-img").style.width= "60px";
+    document.getElementById("nav-contents").style.paddingTop = "15px";
+    document.getElementById("nav-contents").style.paddingBottom = "15px";
     document.querySelector(".profile-img").style.display= "block";
   } else {
     // document.getElementById("nav-contents").style.top = "-50px";
     document.getElementById("nav-contents").style.position = "fixed";
     document.getElementById("nav-contents").style.left = "0";
+     document.getElementById("nav-contents").style.margin = "0px";
     document.getElementById("nav-contents").style.top = "0px";
     document.querySelector(".profile-img").style.height= "70px";
     document.querySelector(".profile-img").style.width= "70px";
-    document.getElementById("nav-contents").style.paddingTop = "5px";
-    document.getElementById("nav-contents").style.paddingBottom = "5px";
-    document.getElementById("nav-contents").style.background = "darkblue";
+    document.getElementById("nav-contents").style.paddingTop = "15px";
+    document.getElementById("nav-contents").style.paddingBottom = "15px";
+    // document.getElementById("nav-contents").style.background = "#f5ece6";
 
   }
   prevScrollpos = currentScrollPos;
 }
+
+
+
+// Scroll Animation
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        console.log(entry) 
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        }
+        else {
+            entry.target.classList.remove('show');
+        }
+    });
+});
+
+const hiddenElements = document.querySelectorAll('.hidden');
+hiddenElements.forEach((el) => observer.observe(el));
